@@ -57,19 +57,25 @@ class _ChatViewState extends State<ChatView> {
                 Expanded(
                     child: TextFormField(
                   controller: _controller,
+                  onFieldSubmitted: (String _message) {
+                    print("on field submitted >> " + _message);
+                  },
                   decoration: InputDecoration(
                       hintText: "Type your message here",
                       labelText: "Your message",
                       helperText: "Here's where the message goes"),
                 )),
-                IconButton(
-                    icon: Icon(
-                      Icons.send,
-                      color: Colors.blue,
-                    ),
-                    onPressed: () {
-                      print('send message tapped >> ' + _controller.text);
-                    }),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: IconButton(
+                      icon: Icon(
+                        Icons.send,
+                        color: Colors.blue,
+                      ),
+                      onPressed: () {
+                        print('send message tapped >> ' + _controller.text);
+                      }),
+                ),
               ],
             ),
           ),
