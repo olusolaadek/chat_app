@@ -34,6 +34,11 @@ class _MyChatAppState extends State<MyChatApp> {
               lastMessage: "I will do the snap im a while",
               messageTime: DateTime.now(),
             ),
+            ChatHead(
+              friendName: "Friend of Peace",
+              lastMessage: "Please tell Naomi not to do it",
+              messageTime: DateTime.now(),
+            ),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
