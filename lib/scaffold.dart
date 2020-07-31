@@ -1,3 +1,4 @@
+import 'package:chat_app/ChatHead.dart';
 import 'package:flutter/material.dart';
 
 class MyChatApp extends StatefulWidget {
@@ -23,7 +24,13 @@ class _MyChatAppState extends State<MyChatApp> {
             ),
           ],
         ),
-        body: ListView(),
+        body: ListView(
+          children: <Widget>[
+            ChatHead(),
+            ChatHead(),
+            ChatHead(),
+          ],
+        ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndex,
           items: <BottomNavigationBarItem>[
