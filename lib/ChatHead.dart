@@ -4,6 +4,20 @@ import 'package:flutter/material.dart';
 class ChatHead extends StatefulWidget {
   @override
   _ChatHeadState createState() => _ChatHeadState();
+
+  //
+  final String friendName;
+  //
+  final String lastMessage;
+  //
+  final DateTime messageTime;
+
+  ChatHead({
+    Key key,
+    this.friendName: '',
+    this.lastMessage: '',
+    this.messageTime,
+  }) : super(key: key);
 }
 
 class _ChatHeadState extends State<ChatHead> {
@@ -23,14 +37,14 @@ class _ChatHeadState extends State<ChatHead> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Text(
-                    "<Friend's Name>",
+                    widget.friendName,
                     style: Theme.of(context).textTheme.headline6,
                   ),
                   Text(
-                    "Last Message",
+                    widget.lastMessage,
                     style: Theme.of(context).textTheme.bodyText1,
                   ),
-                  Text("Last nessage time"),
+                  Text(widget.messageTime.toString()),
                 ],
               ),
             ),
@@ -39,7 +53,7 @@ class _ChatHeadState extends State<ChatHead> {
             CircleAvatar(
               radius: 32.0,
               child: Text(
-                "T",
+                widget.friendName.substring(0, 1), // Get friend's initial
                 style: Theme.of(context)
                     .textTheme
                     .headline4

@@ -5,10 +5,12 @@ class ChatMessages extends StatefulWidget {
   _ChatMessagesState createState() => _ChatMessagesState();
 
   final bool isFriend;
+  final bool isNotPrevious;
 
   ChatMessages({
     Key key,
     this.isFriend = false,
+    this.isNotPrevious = false,
   }) : super(key: key);
 }
 
@@ -16,19 +18,32 @@ class _ChatMessagesState extends State<ChatMessages> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.all(8.0),
       height: 100.0,
       width: double.infinity,
-      color: Colors.blue,
+      color: Colors.grey[300],
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          widget.isFriend
+          widget.isFriend && widget.isNotPrevious
               ? CircleAvatar(
                   radius: 32.0,
                   backgroundColor: Colors.white,
+                  child: Text("Fr"),
                 )
               : Container(),
-          Text('Chat here'),
+          Expanded(
+              child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text('Chat here'),
+          )),
+          !widget.isFriend && widget.isNotPrevious
+              ? CircleAvatar(
+                  radius: 32.0,
+                  backgroundColor: Colors.white,
+                  child: Text("Me"),
+                )
+              : Container(),
         ],
       ),
     );
